@@ -30,7 +30,7 @@ export const SelectField: React.FC<AutoFormFieldProps> = ({
       }}
       defaultValue={field.default}
     >
-      <SelectTrigger id={id} className={error ? "border-destructive" : ""}>
+      <SelectTrigger id={id} className={(error ? "border-destructive" : "")+ "w-full"}>
         <SelectValue placeholder="Select an option" />
       </SelectTrigger>
       <SelectContent>

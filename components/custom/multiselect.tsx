@@ -39,7 +39,6 @@ export const CustomMultiSelect: React.FC<MultiSelectFieldProps> = (props) => {
         const fetchedOptions = await props.options();
         setOptions(fetchedOptions);
       } catch (error) {
-        console.error("Error fetching options:", error);
         setOptions([{ label: `No ${props.label} Found`, value: " " }]);
       }
       setIsFetchingData(false);

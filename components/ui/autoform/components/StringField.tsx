@@ -6,10 +6,11 @@ export const StringField: React.FC<AutoFormFieldProps> = ({
   inputProps,
   error,
   id,
+    label
 }) => {
   const { key, ...props } = inputProps;
 
   return (
-    <Input id={id} className={error ? "border-destructive" : ""} {...props} />
+    <Input id={id} className={error ? "border-destructive" : ""} placeholder={label} {...props} />
   );
 };
