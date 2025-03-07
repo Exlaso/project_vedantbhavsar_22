@@ -222,15 +222,6 @@ export function ChatMessage({
 
         {!isUser && !isLoading && (
           <div className="mt-6 flex space-x-2">
-            <Button
-              onClick={handleCopy}
-              variant="outline"
-              size="sm"
-              className="flex items-center"
-            >
-              {copied ? <Check size={16} /> : <Files size={16} />}
-              <span className="ml-1">{copied ? "Copied" : "Copy"}</span>
-            </Button>
             {onRegenerate && (
               <Button
                 onClick={onRegenerate}

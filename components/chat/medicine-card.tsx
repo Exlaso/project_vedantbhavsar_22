@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -51,6 +53,11 @@ export function MedicineCard({
     return null;
   }
 
+  // Generate a custom Unsplash image URL based on the medicine name
+  const unsplashImageUrl = `https://source.unsplash.com/400x300/?${encodeURIComponent(
+    medicine.name.split(" ")[0].replace(/[^a-zA-Z0-9]/g, "")
+  )},medicine,pill,healthcare`;
+
   const handleAddToCart = () => {
     if (onAddToCart) {
       onAddToCart(medicine);
@@ -58,14 +65,14 @@ export function MedicineCard({
   };
 
   return (
-    <Card className={`overflow-hidden ${className}`}>
+    <Card className={`overflow-hidden shadow-sm hover:shadow ${className}`}>
       {!compact && (
         <div className="aspect-video relative bg-muted">
           <img
             src={
               imageError
                 ? `/placeholder.svg?height=200&width=300`
-                : medicine.imageUrl || `/placeholder.svg?height=200&width=300`
+                : medicine.imageUrl || unsplashImageUrl
             }
             alt={medicine.name}
             className="object-cover w-full h-full"
@@ -73,12 +80,12 @@ export function MedicineCard({
           />
         </div>
       )}
-      <CardHeader className={compact ? "p-3" : "p-4"}>
-        <CardTitle className={compact ? "text-base" : "text-lg"}>
+      <CardHeader className={compact ? "p-3" : "p-3"}>
+        <CardTitle className={compact ? "text-base" : "text-base"}>
           {medicine.name}
         </CardTitle>
       </CardHeader>
-      <CardContent className={compact ? "p-3 pt-0" : "p-4 pt-0"}>
+      <CardContent className={compact ? "p-3 pt-0" : "p-3 pt-0"}>
         <p className="text-sm text-muted-foreground line-clamp-3">
           {medicine.description}
         </p>
@@ -123,8 +130,12 @@ export function MedicineCard({
         )}
       </CardContent>
       {onAddToCart && (
-        <CardFooter className={compact ? "p-3 pt-0" : "p-4 pt-0"}>
-          <Button onClick={handleAddToCart} className="w-full">
+        <CardFooter className={compact ? "p-3 pt-0" : "p-3 pt-0"}>
+          <Button
+            onClick={handleAddToCart}
+            className="w-full text-sm h-9 font-medium"
+            size="sm"
+          >
             {buttonIcon}
             {buttonText}
           </Button>

@@ -216,7 +216,7 @@ export default function Chat() {
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.length === 0 ? (
           <div className="text-center text-muted-foreground p-8">
-            <div className="flex items-center justify-center h-full flex-col gap-4 w-full max-w-6xl mx-auto">
+            <div className="flex items-center justify-center flex-col gap-4 w-full max-w-6xl mx-auto">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -227,47 +227,44 @@ export default function Chat() {
                   Welcome to MediAssist
                 </h1>
               </motion.div>
-
-              {/* Replace the grid with a scrollable flex container */}
-              <div className="w-full overflow-x-auto pb-2 hide-scrollbar">
-                <div className="flex gap-3 min-w-max">
-                  {QuickActions.map((item, index) => {
-                    const Icon = item.icon;
-                    return (
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 20 }}
-                        transition={{
-                          delay: 0.1 * index,
-                          duration: 0.4,
-                          ease: "easeOut",
-                        }}
-                        key={index}
-                        className="w-[230px]" // Fixed width for each action card
-                      >
-                        <button
-                          type="button"
-                          onClick={() => setInput(item.action)}
-                          className="group w-full h-full text-left rounded-lg p-3.5
+              <div className="grid sm:grid-cols-3 gap-2 w-full">
+                {QuickActions.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{
+                        delay: 0.1 * index,
+                        duration: 0.4,
+                        ease: "easeOut",
+                      }}
+                      key={index}
+                      className={`${
+                        index > 1 ? "hidden sm:block" : "block"
+                      } h-full`}
+                    >
+                      <button
+                        type="button"
+                        className="group w-full h-full text-left rounded-lg p-2.5
                                     bg-zinc-900 hover:bg-zinc-800
                                     border border-zinc-800 hover:border-zinc-700
                                     transition-colors duration-300
                                     flex flex-col justify-between"
-                        >
-                          <div className="flex items-center gap-2">
-                            <div className="p-1.5 rounded-md bg-zinc-800 border border-zinc-700">
-                              <Icon size={16} className="text-zinc-100" />
-                            </div>
-                            <div className="text-sm text-zinc-100 font-medium">
-                              {item.action}
-                            </div>
+                      >
+                        <div className="flex items-center gap-2">
+                          <div className="p-1.5 rounded-md bg-zinc-800 border border-zinc-700">
+                            <Icon size={14} className="text-zinc-100" />
                           </div>
-                        </button>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                          <div className="text-xs text-zinc-100 font-medium">
+                            {item.action}
+                          </div>
+                        </div>
+                      </button>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>{" "}
           </div>

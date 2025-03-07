@@ -7,7 +7,7 @@ export default function DashboardLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <SidebarProvider>
-      <div className="h-screen flex w-full">
+      <div className="h-[calc(100vh-8rem)] flex w-full">
         <div className="">
           <AppSidebar />
         </div>
