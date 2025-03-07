@@ -199,6 +199,7 @@ export default function SignUpForm({
                     >
                       Continue
                     </SignUp.Action>
+
                     <p className="text-center text-sm text-zinc-500">
                       Already have an account?{" "}
                       <Clerk.Link
@@ -217,9 +218,9 @@ export default function SignUpForm({
               {/* ...commented button code... */}
             </div>
             <div className="text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <a href="/sign-up" className="underline underline-offset-4">
-                Sign up
+              Already have an account?{" "}
+              <a href="/sign-in" className="underline underline-offset-4">
+                Sign in
               </a>
             </div>
           </div>{" "}
