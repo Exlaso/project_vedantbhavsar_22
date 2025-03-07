@@ -10,3 +10,7 @@ export default function TextAreaField({id,label,inputProps}: AutoFormFieldProps)
         </div>
     );
 }
+
+
+export class TextAreaField {
+}
