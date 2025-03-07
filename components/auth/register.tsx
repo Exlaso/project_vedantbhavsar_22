@@ -28,7 +28,7 @@ export default function SignUpForm({
                 <SignUp.Root>
                   <SignUp.Step
                     name="start"
-                    className="w-full space-y-6  px-4 py-10 sm:w-96 sm:px-8"
+                    className="w-full space-y-6  px-4 py-10  sm:px-8"
                   >
                     <header className="text-center">
                       <svg
@@ -67,6 +67,7 @@ export default function SignUpForm({
                           type="email"
                           required
                           className="w-full rounded-md bg-white px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
+                          placeholder="steve@apple.com"
                         />
                         <Clerk.FieldError className="block text-sm text-red-400" />
                       </Clerk.Field>
@@ -78,6 +79,7 @@ export default function SignUpForm({
                           type="password"
                           required
                           className="w-full rounded-md bg-white px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
+                          placeholder="Your secure password"
                         />
                         <Clerk.FieldError className="block text-sm text-red-400" />
                       </Clerk.Field>
@@ -91,7 +93,7 @@ export default function SignUpForm({
                   </SignUp.Step>
                   <SignUp.Step
                     name="verifications"
-                    className="w-full space-y-6  bg-white px-4 py-10 shadow-md sm:w-96 sm:px-8"
+                    className="w-full space-y-6   px-4 py-10   sm:px-8"
                   >
                     <header className="text-center">
                       <svg
@@ -130,6 +132,7 @@ export default function SignUpForm({
                           type="otp"
                           required
                           className="w-full rounded-md bg-white px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
+                          placeholder="e.g. 123456"
                         />
                         <Clerk.FieldError className="block text-sm text-red-400" />
                       </Clerk.Field>
@@ -152,7 +155,7 @@ export default function SignUpForm({
                   </SignUp.Step>
                   <SignUp.Step
                     name="continue"
-                    className="w-full space-y-6   px-4 py-10 sm:w-96 sm:px-8"
+                    className="w-full space-y-6   px-4 py-10  sm:px-8"
                   >
                     <header className="text-center">
                       <svg
