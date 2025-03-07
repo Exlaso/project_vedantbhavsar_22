@@ -43,8 +43,9 @@ export function OnboardingForm({questions,currentIDX}: { questions: Tables<'gene
         },
         onSuccess: async () => {
             const nextIndex= (currentIndex|| 0)+1
-            await updateProgress(nextIndex)
-            if (nextIndex >= questions.length) {
+            const isLast = nextIndex >= questions.length
+            await updateProgress(nextIndex,isLast)
+            if (isLast) {
                 router.push("/onboarding-result")
             }else{
             await refetch()
