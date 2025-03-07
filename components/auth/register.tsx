@@ -14,7 +14,7 @@ export default function SignUpForm({
 }: React.ComponentProps<"div">) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden min-h-[550px] md:min-h-[600px] lg:min-h-[650px] max-h-[90vh]">
         <CardContent className="grid p-0 md:grid-cols-2">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col items-center text-center">
@@ -229,7 +229,7 @@ export default function SignUpForm({
           {/* Added closing div tag for the left column */}
           <div className="relative hidden bg-muted md:block">
             <img
-              src="/placeholder.svg"
+              src="/assests/health.jpg"
               alt="Image"
               className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
             />
