@@ -13,7 +13,7 @@ export default function LoginForm({
 }: React.ComponentProps<"div">) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden ">
         <CardContent className="grid p-0 md:grid-cols-2">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col items-center text-center">
