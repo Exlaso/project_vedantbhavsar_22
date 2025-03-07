@@ -46,7 +46,7 @@ export function OnboardingForm({questions,currentIDX}: { questions: Tables<'gene
             const isLast = nextIndex >= questions.length
             await updateProgress(nextIndex,isLast)
             if (isLast) {
-                router.push("/onboarding-result")
+                router.push("/dashboard")
             }else{
             await refetch()
             }

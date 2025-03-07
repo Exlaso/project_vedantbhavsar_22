@@ -14,7 +14,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" variant="floating" {...props}>
       <SidebarContent>
-        {menuItems.navGroups.map((props: any) => (
+        {menuItems.navGroups.map((props) => (
           <NavGroup key={props.title} {...props} />
         ))}
       </SidebarContent>

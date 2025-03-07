@@ -23,7 +23,7 @@ const onBoardingPage = async () => {
     const questions  = questionsSnapshot.data;
     const initialProgress = await getCurrentProgress()
     if (questions.length <= initialProgress) {
-        redirect("/onboarding-result")
+        redirect("/dashboard")
     }
 
 
