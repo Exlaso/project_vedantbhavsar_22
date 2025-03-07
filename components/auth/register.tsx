@@ -135,7 +135,7 @@ export default function SignUpForm({
                       </Clerk.Field>
                       <SignUp.Action
                         submit
-                        className="w-full rounded-md bg-zinc-950 px-3.5 py-1.5 text-center text-sm font-medium text-white shadow outline-none ring-1 ring-inset ring-zinc-950 hover:bg-zinc-800 focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-zinc-950 active:text-white/70"
+                        className="w-full rounded-md  px-3.5 py-1.5 text-center text-sm font-medium text-white shadow outline-none ring-1 ring-inset  hover:bg-zinc-800 focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-zinc-950 active:text-white/70"
                       >
                         Verify
                       </SignUp.Action>
@@ -193,9 +193,10 @@ export default function SignUpForm({
                       />
                       <Clerk.FieldError className="block text-sm text-red-400" />
                     </Clerk.Field>
+
                     <SignUp.Action
                       submit
-                      className="w-full rounded-md bg-zinc-950 px-3.5 py-1.5 text-center text-sm font-medium text-white shadow outline-none ring-1 ring-inset ring-zinc-950 hover:bg-zinc-800 focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-zinc-950 active:text-white/70"
+                      className="w-full rounded-md  px-3.5 py-1.5 text-center text-sm font-medium text-white shadow outline-none ring-1 ring-inset  hover:bg-zinc-800 focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-zinc-950 active:text-white/70"
                     >
                       Continue
                     </SignUp.Action>
@@ -219,7 +220,7 @@ export default function SignUpForm({
             <div className="text-center text-sm">
               Don&apos;t have an account?{" "}
               <a href="/sign-up" className="underline underline-offset-4">
-                Sign up
+                Sign In
               </a>
             </div>
           </div>{" "}

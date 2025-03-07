@@ -223,7 +223,7 @@ export default function LoginForm({
                                       return isLoading ? (
                                         <Loader className="size-4 animate-spin" />
                                       ) : (
-                                        " Verify    "
+                                        " Verify"
                                       );
                                     }}
                                   </Clerk.Loading>
