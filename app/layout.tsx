@@ -27,19 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" className={"dark"}>
         <TanstackProvider>
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
+
               {children}
-            </ThemeProvider>
           </body>
         </TanstackProvider>
       </html>

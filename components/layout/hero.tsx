@@ -47,7 +47,7 @@ export default function Hero() {
               Answer a few questions to get your health assessment
             </h2>
 
-            <p className="max-w-2xl mx-auto text-gray-300">
+            <p className="max-w-2xl mx-auto text-gray-6 00">
               Based on your answers, we will generate a potential health issue
               and provide solutions along with a graph of SAD (Seasonal
               Affective Disorder) rates.
@@ -58,7 +58,7 @@ export default function Hero() {
                 <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 text-xs font-medium text-gray-50 backdrop-blur-3xl">
                   <SignInButton
                       forceRedirectUrl={'/onboarding'}
-                    //  @ts-ignore
+                    //  @ts-ignore */
                     className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/5 via-purple-400/20 to-transparent text-white border-input border-[1px] hover:bg-transparent/90 transition-colors sm:w-auto py-4 px-10"
                   >
                     Get Started
