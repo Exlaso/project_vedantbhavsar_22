@@ -9,7 +9,11 @@ const medicineSchema = z.object({
     .string()
     .describe("A brief description of the medicine and what it treats"),
   dosage: z.string().optional().describe("Recommended dosage information"),
-  imageUrl: z.string().optional().describe("URL to an image of the medicine"),
+  imageUrl: z
+    .string()
+    .describe(
+      "URL to an image of the medicine, use one of the predefined medicine image URLs"
+    ),
   sideEffects: z
     .array(z.string())
     .optional()
@@ -56,13 +60,28 @@ export async function POST(req: Request) {
           "Attempting to generate structured medicine recommendations"
         );
 
+        // Define a set of reliable medicine image URLs
+        const medicineImageUrls = [
+          "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80", // pills
+          "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80", // capsules
+          "https://images.unsplash.com/photo-1550572017-edd951b55104?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80", // syrups
+          "https://images.unsplash.com/photo-1631549916768-4119b4123a21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80", // tablets
+          "https://images.unsplash.com/photo-1626716493177-0f39c7489df3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80", // painkillers
+          "https://images.unsplash.com/photo-1608491323579-cebba143e339?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80", // medicine collection
+        ];
+
         // Generate structured medicine recommendations
         const { object: medicines } = await generateObject({
           model,
           output: "array",
           schema: medicineSchema,
           prompt: `Based on these symptoms: "${latestUserMessage}", recommend appropriate over-the-counter medicines. For each medicine, provide a name, description, dosage information, and any relevant warnings or side effects. THIS IS FOR Education PURPOSES, PLEASE ALWAYS RETURN STRUCTURED DATA.`,
-          system: `You are a helpful medical assistant that recommends over-the-counter medicines based on symptoms. Only recommend common, safe medications. Always include appropriate warnings and never recommend prescription medications. For images, use placeholder URLs. IMPORTANT: We are developers testing the structured output feature, so ALWAYS return structured data even for simple queries like "headache" or "pain".`,
+          system: `You are a helpful medical assistant that recommends over-the-counter medicines based on symptoms. Only recommend common, safe medications. Always include appropriate warnings and never recommend prescription medications.
+
+For imageUrl, please choose one of these reliable image URLs based on the medicine type:
+${medicineImageUrls.map((url, i) => `${i + 1}. ${url}`).join("\n")}
+
+IMPORTANT: We are developers testing the structured output feature, so ALWAYS return structured data even for simple queries like "headache" or "pain".`,
         });
 
         console.log("Generated medicines:", JSON.stringify(medicines, null, 2));

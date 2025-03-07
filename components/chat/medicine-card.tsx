@@ -65,7 +65,9 @@ export function MedicineCard({
   };
 
   return (
-    <Card className={`overflow-hidden shadow-sm hover:shadow ${className}`}>
+    <Card
+      className={`overflow-hidden  shadow-sm hover:shadow ${className}`}
+    >
       {!compact && (
         <div className="aspect-video relative bg-muted">
           <img

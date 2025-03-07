@@ -209,14 +209,20 @@ export function ChatMessage({
         )}
 
         {medicines.length > 0 && !isLoading && (
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            {medicines.map((medicine, index) => (
-              <MedicineCard
-                key={index}
-                medicine={medicine}
-                onAddToCart={() => addToCart(medicine)}
-              />
-            ))}
+          <div className="mt-4 max-w-4xl mx-auto overflow-x-auto scrollbar-hide pb-4">
+            <div className="flex flex-nowrap gap-4">
+              {medicines.map((medicine, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-[380px] md:w-[400px] sm:[200px]"
+                >
+                  <MedicineCard
+                    medicine={medicine}
+                    onAddToCart={() => addToCart(medicine)}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
