@@ -255,7 +255,7 @@ export default function LoginForm({
           {/* Added closing div tag for the left column */}
           <div className="relative hidden bg-muted md:block">
             <img
-              src="/placeholder.svg"
+              src="/assests/health.jpg"
               alt="Image"
               className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
             />
