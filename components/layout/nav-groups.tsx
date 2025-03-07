@@ -28,16 +28,19 @@ import {
 import { NavCollapsible, NavItem, NavLink, type NavGroup } from "./types";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import {useClerk} from "@clerk/nextjs";
 export function NavGroup({ title, items }: NavGroup) {
   const { state } = useSidebar();
 
   const href = usePathname();
+
 
   return (
     <SidebarGroup>
       <SidebarGroupLabel>{title}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item: any) => {
+
           const key = `${item.title}-${item.url}`;
 
           if (!item.items)
@@ -60,7 +63,9 @@ const NavBadge = ({ children }: { children: ReactNode }) => (
 );
 
 const SidebarMenuLink = ({ item, href }: { item: NavLink; href: string }) => {
+
   const { setOpenMobile } = useSidebar();
+
   return (
     <SidebarMenuItem>
       <SidebarMenuButton

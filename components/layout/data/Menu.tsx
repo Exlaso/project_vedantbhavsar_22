@@ -89,7 +89,7 @@ export const menuItems: SidebarData = {
         {
           icon: LogOut,
           title: "Logout",
-          url: "/logout",
+          url: "logout",
           visible: ["admin", "teacher", "student", "parent"],
         },
       ],
