@@ -291,7 +291,7 @@ export default function GetStarted() {
           </div>
 
           {/* Main content */}
-          <div className="bg-white border  m-3 rounded-md">
+          <div className=" border  m-3 rounded-md">
             <div className="">
               <div className="flex items-center justify-between border-b p-6 pb-4">
                 <h2 className="text-lg font-medium">{steps[step].name}</h2>

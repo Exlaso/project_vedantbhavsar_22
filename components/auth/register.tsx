@@ -53,42 +53,39 @@ export default function SignUpForm({
                           <path d="M27 3.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM25 8.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM23 13.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM21.5 18.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM20.5 23.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM22.5 28.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM25 33.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM27 38.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2Z" />
                         </g>
                       </svg>
-                      <h1 className="mt-4 text-xl font-medium tracking-tight text-zinc-950">
+                      <h1 className="mt-4 text-xl font-medium tracking-tight ">
                         Create an account
                       </h1>
                     </header>
                     <Clerk.GlobalError className="block text-sm text-red-400" />
                     <div className="space-y-4">
                       <Clerk.Field name="emailAddress" className="space-y-2">
-                        <Clerk.Label className="text-sm font-medium text-zinc-950">
+                        <Clerk.Label className="text-sm font-medium ">
                           Email
                         </Clerk.Label>
                         <Clerk.Input
                           type="email"
                           required
-                          className="w-full rounded-md bg-white px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
+                          className="w-full rounded-md  px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
                           placeholder="steve@apple.com"
                         />
                         <Clerk.FieldError className="block text-sm text-red-400" />
                       </Clerk.Field>
                       <Clerk.Field name="password" className="space-y-2">
-                        <Clerk.Label className="text-sm font-medium text-zinc-950">
+                        <Clerk.Label className="text-sm font-medium ">
                           Password
                         </Clerk.Label>
                         <Clerk.Input
                           type="password"
                           required
-                          className="w-full rounded-md bg-white px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
+                          className="w-full rounded-md  px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
                           placeholder="Your secure password"
                         />
                         <Clerk.FieldError className="block text-sm text-red-400" />
                       </Clerk.Field>
                     </div>
-                    <SignUp.Action
-                      submit
-                      className="w-full rounded-md bg-zinc-950 px-3.5 py-1.5 text-center text-sm font-medium text-white shadow outline-none ring-1 ring-inset ring-zinc-950 hover:bg-zinc-800 focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-zinc-950 active:text-white/70"
-                    >
-                      Sign Up
+                    <SignUp.Action submit asChild>
+                      <Button className="w-full">Sign Up</Button>
                     </SignUp.Action>
                   </SignUp.Step>
                   <SignUp.Step
@@ -100,7 +97,7 @@ export default function SignUpForm({
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 40 40"
-                        className="mx-auto size-10 text-zinc-950"
+                        className="mx-auto size-10 "
                         aria-hidden
                       >
                         <mask
@@ -118,14 +115,14 @@ export default function SignUpForm({
                           <path d="M27 3.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM25 8.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM23 13.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM21.5 18.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM20.5 23.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM22.5 28.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM25 33.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM27 38.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2Z" />
                         </g>
                       </svg>
-                      <h1 className="mt-4 text-xl font-medium tracking-tight text-zinc-950">
+                      <h1 className="mt-4 text-xl font-medium tracking-tight ">
                         Verify email code
                       </h1>
                     </header>
                     <Clerk.GlobalError className="block text-sm text-red-400" />
                     <SignUp.Strategy name="email_code">
                       <Clerk.Field name="code" className="space-y-2">
-                        <Clerk.Label className="text-sm font-medium text-zinc-950">
+                        <Clerk.Label className="text-sm font-medium ">
                           Email code
                         </Clerk.Label>
                         <Clerk.Input
@@ -147,7 +144,7 @@ export default function SignUpForm({
                       Already have an account?{" "}
                       <Clerk.Link
                         navigate="sign-in"
-                        className="font-medium text-zinc-950 decoration-zinc-950/20 underline-offset-4 outline-none hover:text-zinc-700 hover:underline focus-visible:underline"
+                        className="font-medium  decoration-zinc-950/20 underline-offset-4 outline-none hover:text-zinc-700 hover:underline focus-visible:underline"
                       >
                         Sign in
                       </Clerk.Link>
@@ -162,7 +159,7 @@ export default function SignUpForm({
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 40 40"
-                        className="mx-auto size-10 text-zinc-950"
+                        className="mx-auto size-10 "
                         aria-hidden
                       >
                         <mask
@@ -180,13 +177,13 @@ export default function SignUpForm({
                           <path d="M27 3.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM25 8.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM23 13.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM21.5 18.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM20.5 23.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM22.5 28.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM25 33.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2ZM27 38.5a1 1 0 1 0 0-2v2Zm0-2h-46v2h46v-2Z" />
                         </g>
                       </svg>
-                      <h1 className="mt-4 text-xl font-medium tracking-tight text-zinc-950">
+                      <h1 className="mt-4 text-xl font-medium tracking-tight ">
                         Continue registration
                       </h1>
                     </header>
                     <Clerk.GlobalError className="block text-sm text-red-400" />
                     <Clerk.Field name="username" className="space-y-2">
-                      <Clerk.Label className="text-sm font-medium text-zinc-950">
+                      <Clerk.Label className="text-sm font-medium ">
                         Username
                       </Clerk.Label>
                       <Clerk.Input
@@ -206,7 +203,7 @@ export default function SignUpForm({
                       Already have an account?{" "}
                       <Clerk.Link
                         navigate="sign-in"
-                        className="font-medium text-zinc-950 decoration-zinc-950/20 underline-offset-4 outline-none hover:text-zinc-700 hover:underline focus-visible:underline"
+                        className="font-medium  decoration-zinc-950/20 underline-offset-4 outline-none hover:text-zinc-700 hover:underline focus-visible:underline"
                       >
                         Sign in
                       </Clerk.Link>
@@ -231,7 +228,7 @@ export default function SignUpForm({
             <img
               src="/assests/health.jpg"
               alt="Image"
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+              className="absolute inset-0 h-full w-full object-cover "
             />
           </div>
         </CardContent>
