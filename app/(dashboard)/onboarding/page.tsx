@@ -3,6 +3,7 @@ import {getSupabaseClient} from "@/lib/supabase/serverClient";
 import {OnboardingForm} from "@/components/onboardingForm";
 import {getCurrentProgress} from "@/action/db/updateProgress";
 import {redirect} from "next/navigation";
+import {auth} from "@clerk/nextjs/server";
 
 
 const onBoardingPage = async () => {
