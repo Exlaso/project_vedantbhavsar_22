@@ -2,10 +2,11 @@ import LoginForm from "@/components/auth/login";
 import React from "react";
 import { useAuth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 const Page = async () => {
-  const islogin = await useAuth();
-  if (!islogin.isSignedIn) {
+  const islogin = await auth();
+  if (islogin.userId) {
     redirect("/onboarding");
   }
   return (

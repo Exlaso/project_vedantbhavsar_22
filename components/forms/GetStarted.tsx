@@ -162,15 +162,10 @@ const formSchema = z.object({
 });
 
 export default function GetStarted() {
-  const { userId, isLoaded } = useAuth();
-  const { session } = useSession();
+  const {  isLoaded } = useAuth();
   const router = useRouter();
   const [step, setStep] = useState(0);
-  const [previousStep, setPreviousStep] = useState(0);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [isOnboarded, setIsOnboarded] = useState<boolean | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [isUploading, setIsUploading] = useState<boolean>(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -235,14 +230,12 @@ export default function GetStarted() {
     if (!output) return;
 
     if (step < steps.length - 1) {
-      setPreviousStep(step);
       setStep(step + 1);
     }
   };
 
   const prev = () => {
     if (step > 0) {
-      setPreviousStep(step);
       setStep(step - 1);
     }
   };
@@ -377,7 +370,6 @@ export default function GetStarted() {
                       {step === steps.length - 1 && (
                         <Button
                           type="submit"
-                          disabled={isUploading}
                           className="ml-auto"
                         >
                           Complete
