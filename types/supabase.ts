@@ -11,57 +11,83 @@ export type Database = {
     Tables: {
       general_questions: {
         Row: {
-          follow_up_conditions: string | null
+          follow_up_conditions: number[] | null
           follow_up_question: string | null
           id: number
-          option_a: string
-          option_b: string
-          option_c: string
-          option_d: string
-          option_e: string | null
+          options: string[]
           question: string
         }
         Insert: {
-          follow_up_conditions?: string | null
+          follow_up_conditions?: number[] | null
           follow_up_question?: string | null
           id?: number
-          option_a: string
-          option_b: string
-          option_c: string
-          option_d: string
-          option_e?: string | null
+          options: string[]
           question: string
         }
         Update: {
-          follow_up_conditions?: string | null
+          follow_up_conditions?: number[] | null
           follow_up_question?: string | null
           id?: number
-          option_a?: string
-          option_b?: string
-          option_c?: string
-          option_d?: string
-          option_e?: string | null
+          options?: string[]
           question?: string
         }
         Relationships: []
+      }
+      user_answers: {
+        Row: {
+          answer: string | null
+          created_at: string
+          follow_up_answer: string | null
+          id: number
+          question_id: number
+          user_id: string
+        }
+        Insert: {
+          answer?: string | null
+          created_at?: string
+          follow_up_answer?: string | null
+          id?: number
+          question_id: number
+          user_id?: string
+        }
+        Update: {
+          answer?: string | null
+          created_at?: string
+          follow_up_answer?: string | null
+          id?: number
+          question_id?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_answers_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "general_questions"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       users: {
         Row: {
           created_at: string
           id: number
           isOnboard: boolean | null
+          onboarding_progress: number | null
           user_id: string | null
         }
         Insert: {
           created_at?: string
           id?: number
           isOnboard?: boolean | null
+          onboarding_progress?: number | null
           user_id?: string | null
         }
         Update: {
           created_at?: string
           id?: number
           isOnboard?: boolean | null
+          onboarding_progress?: number | null
           user_id?: string | null
         }
         Relationships: []
@@ -71,6 +97,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      request_user_id: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
       requesting_user_id: {
         Args: Record<PropertyKey, never>
         Returns: string

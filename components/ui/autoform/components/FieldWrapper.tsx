@@ -16,7 +16,7 @@ export const FieldWrapper: React.FC<FieldWrapperProps> = ({
   return (
     <div className="space-y-2">
       {!isDisabled && (
-        <Label htmlFor={id}>
+        <Label htmlFor={id} className={"text-lg"}>
           {label}
           {field.required && <span className="text-destructive"> *</span>}
         </Label>
