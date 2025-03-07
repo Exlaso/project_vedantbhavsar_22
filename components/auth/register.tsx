@@ -91,7 +91,7 @@ export default function SignUpForm({
                   </SignUp.Step>
                   <SignUp.Step
                     name="verifications"
-                    className="w-full space-y-6 rounded-2xl bg-white px-4 py-10 shadow-md sm:w-96 sm:px-8"
+                    className="w-full space-y-6  bg-white px-4 py-10 shadow-md sm:w-96 sm:px-8"
                   >
                     <header className="text-center">
                       <svg
@@ -152,7 +152,7 @@ export default function SignUpForm({
                   </SignUp.Step>
                   <SignUp.Step
                     name="continue"
-                    className="w-full space-y-6 rounded-2xl  px-4 py-10 sm:w-96 sm:px-8"
+                    className="w-full space-y-6   px-4 py-10 sm:w-96 sm:px-8"
                   >
                     <header className="text-center">
                       <svg
