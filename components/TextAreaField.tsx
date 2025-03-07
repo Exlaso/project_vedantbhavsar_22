@@ -1,6 +1,4 @@
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useId } from "react";
 import {AutoFormFieldProps} from "@autoform/react";
 
 export default function TextAreaField({id,label,inputProps}: AutoFormFieldProps) {
@@ -10,3 +8,5 @@ export default function TextAreaField({id,label,inputProps}: AutoFormFieldProps)
         </div>
     );
 }
+
+
