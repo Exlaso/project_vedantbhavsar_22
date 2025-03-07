@@ -63,7 +63,6 @@ const SelectCommand = (props: SelectFieldProps) => {
         props.form?.setValue(props.name, undefined);
       }
       if (!Array.isArray(options)) {
-        console.error("props.options() did not return an array");
         setData([{ label: `No ${props.label} Found`, value: " " }]);
         return () => {};
       }
