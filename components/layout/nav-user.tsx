@@ -1,93 +1,33 @@
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Sparkles,
-} from "lucide-react";
+import { useUser } from "@clerk/nextjs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
-} from "@/components/ui/sidebar";
-import Link from "next/link";
 
-export function NavUser({
-  user,
-}: {
-  user: {
-    name: string;
-    email: string;
-    avatar: string;
-    role: string;
-  };
-}) {
+export function NavUser() {
+  const { user, isLoaded } = useUser();
+
+  // Show loading state if user data isn't loaded yet
+  if (!isLoaded) {
+    return (
+      <div className="flex gap-2 items-center">
+        <div className="h-8 w-8 rounded-lg bg-muted animate-pulse"></div>
+        <div className="h-4 w-20 bg-muted animate-pulse"></div>
+      </div>
+    );
+  }
+
+  // Get user information from Clerk
+  const firstName = user?.firstName || "User";
+  const avatarUrl = user?.imageUrl || "/assets/avatar.png"; // Fallback avatar
+  const initials = firstName.charAt(0) + (user?.lastName?.charAt(0) || "");
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <div className="flex gap-2 items-center ">
-          <div className="grid flex-1 text-right text-sm leading-tight">
-            <span className="truncate font-semibold capitalize">
-              {user.name}
-            </span>
-          </div>
-          <Avatar className="h-8 w-8 rounded-lg cursor-pointer">
-            <AvatarImage src={user.avatar} alt={user.name} />
-            <AvatarFallback className="rounded-lg">SN</AvatarFallback>
-          </Avatar>
-        </div>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent
-        className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-        align="end"
-        sideOffset={4}
-      >
-        <DropdownMenuLabel className="p-0 font-normal">
-          <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-            <Avatar className="h-8 w-8 rounded-lg">
-              <AvatarImage src={user.avatar} alt={user.name} />
-              <AvatarFallback className="rounded-lg">SN</AvatarFallback>
-            </Avatar>
-            <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="truncate font-semibold">{user.name}</span>
-              <span className="truncate text-xs">{user.email}</span>
-            </div>
-          </div>
-        </DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <Sparkles />
-            Upgrade to Pro
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem asChild>
-            <Link href="/settings/account">
-              <BadgeCheck />
-              Account
-            </Link>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <LogOut />
-          Log out
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="flex gap-2 items-center">
+      <div className="grid flex-1 text-right text-sm leading-tight">
+        <span className="truncate font-semibold capitalize">{firstName}</span>
+      </div>
+      <Avatar className="h-8 w-8 rounded-lg">
+        <AvatarImage src={avatarUrl} alt={firstName} />
+        <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
+      </Avatar>
+    </div>
   );
 }

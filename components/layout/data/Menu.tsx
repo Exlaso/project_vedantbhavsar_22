@@ -55,12 +55,7 @@ export const menuItems: SidebarData = {
           url: `/${["dashboard"]}`,
           visible: ["admin", "dashboard"],
         },
-        {
-          icon: GraduationCap,
-          title: "Fitness Track",
-          url: "/fitness",
-          visible: ["user"],
-        },
+
         {
           icon: Bot,
           title: "MediAssist",
@@ -74,18 +69,6 @@ export const menuItems: SidebarData = {
       title: "OTHER",
 
       items: [
-        {
-          icon: SquareUserRound,
-          title: "Profile",
-          url: "/profile",
-          visible: ["admin", "teacher", "student", "parent"],
-        },
-        {
-          icon: Settings,
-          title: "Settings",
-          url: "/settings",
-          visible: ["admin", "teacher", "student", "parent"],
-        },
         {
           icon: LogOut,
           title: "Logout",

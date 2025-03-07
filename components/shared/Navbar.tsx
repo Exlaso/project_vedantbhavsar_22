@@ -9,7 +9,7 @@ const Navbar = () => {
       {/* <SearchBox /> */}
       <div className="flex gap-2 items-center justify-between w-full">
         <ThemeSwitch />
-        <NavUser user={menuItems.user} />
+        <NavUser />
       </div>
     </div>
   );

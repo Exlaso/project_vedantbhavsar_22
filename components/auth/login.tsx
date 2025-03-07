@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,13 +7,12 @@ import { Label } from "@/components/ui/label";
 import * as Clerk from "@clerk/elements/common";
 import * as SignIn from "@clerk/elements/sign-in";
 import { Loader } from "lucide-react";
-import {useAuth} from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 
 export default function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden ">
@@ -260,7 +259,7 @@ export default function LoginForm({
             <img
               src="/assests/health.jpg"
               alt="Image"
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+              className="absolute inset-0 h-full w-full object-cover "
             />
           </div>
         </CardContent>
