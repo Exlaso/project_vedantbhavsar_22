@@ -10,7 +10,6 @@ export const updateProgress = async (nextIndex: number,isOnBoard:boolean) => {
         onboarding_progress: nextIndex,
         isOnboard:isOnBoard
     }).eq("user_id",user_id?.userId || "UNKNOWN")
-    console.log({data})
     return data.data
 }
 export const getCurrentProgress = async () => {

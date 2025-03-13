@@ -1,0 +1,14 @@
+schema:
+  - ${NEXT_PUBLIC_SUPABASE_GRAPHQL_URL}:
+      headers:
+        apiKey: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+
+documents:
+  - ./app/**/*.graphql
+
+extensions:
+  endpoints:
+    default:
+      url: ${NEXT_PUBLIC_SUPABASE_GRAPHQL_URL}
+      headers:
+        apiKey: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}

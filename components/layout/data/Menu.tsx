@@ -62,6 +62,12 @@ export const menuItems: SidebarData = {
           url: "/mediassist",
           visible: ["admin", "user"],
         },
+        {
+          icon: Bot,
+          title: "Video Call",
+          url: "/video-call",
+          visible: ["admin", "user"],
+        },
       ],
     },
 

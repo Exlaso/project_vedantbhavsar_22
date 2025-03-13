@@ -44,7 +44,7 @@ export function MedicineCard({
 
   // Log when a medicine card is rendered
   useEffect(() => {
-    console.log("Rendering medicine card:", medicine?.name || "unknown");
+     console.log("Rendering medicine card:", medicine?.name || "unknown");
   }, [medicine?.name]);
 
   // Ensure we have valid data

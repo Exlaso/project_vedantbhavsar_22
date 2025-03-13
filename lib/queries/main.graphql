@@ -1,0 +1,57 @@
+query getUserAnswers{
+    user_answersCollection{
+        edges {
+            node {
+                answer
+                follow_up_answer
+                general_questions {
+                    question
+                    follow_up_question
+                }
+            }
+
+        }
+    }
+}
+query getUserAIData{
+    onboarding_resultCollection{
+         edges {
+             node {
+                 article
+                 insights
+                 SADrates
+             }
+         }
+    }
+}
+
+mutation insertUserAIData($input: onboarding_resultInsertInput!) {
+    insertIntoonboarding_resultCollection(objects: [$input]) {
+        affectedCount
+    }
+}
+
+query getChatMessages($cursor:Cursor){
+    message_listCollection(last: 10,before: $cursor,orderBy: {created_at: AscNullsFirst}){
+    edges {
+        node {
+            created_at
+            message
+            message_id
+            created_at
+            isUser
+        }
+    }
+        pageInfo {
+            startCursor
+            hasPreviousPage
+        }
+}
+}
+
+mutation insertChatMessages($message: message_listInsertInput!){
+    insertIntomessage_listCollection(objects: [$message]){
+        affectedCount
+    }
+}
+

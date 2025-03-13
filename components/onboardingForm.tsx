@@ -16,7 +16,6 @@ import {useRouter} from "next/navigation";
 function createZodEnum<T extends string[]>(values: T) {
     // @ts-ignore
     const e = z.enum(values).optional();
-    console.log({e})
     return e;
 }
 

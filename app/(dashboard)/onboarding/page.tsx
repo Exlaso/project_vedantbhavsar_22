@@ -12,11 +12,6 @@ const onBoardingPage = async () => {
     const questionsSnapshot = await supabase.from("general_questions").select("*").order('id',{ascending:true});
     if (questionsSnapshot.error) {
          return <div>
-             <pre>
-                 <code>
-                     {JSON.stringify(questionsSnapshot.error, null, 2)}
-                 </code>
-             </pre>
              Something went wrong...
          </div>
     }
@@ -27,7 +22,7 @@ const onBoardingPage = async () => {
     }
 
 
-    return <div className={"h-screen w-full container mx-auto justify-center items-center flex"}>
+    return <div className={"h-screen w-full container  mx-auto justify-center items-center flex"}>
         <Card>
             <CardHeader>
                 <CardTitle>Welcome to the Onboarding</CardTitle>
